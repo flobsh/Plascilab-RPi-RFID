@@ -5,11 +5,9 @@ __Site du Plascilab :__ <https://www.plascilab.fr/>
 
 __Site de Planète Sciences :__ <http://www.planete-sciences.org/national/>
 
-# Utilisation du module
+# Installation du module
 
-## Téléchargement et installation
-
-### Installer les bibliothèques nécéssaires
+## Installer les bibiliothèques nécéssaires
 
 Le module Plascilab-RPi-RFID utilise plusieurs bibliothèques pour fonctionner :
 
@@ -22,9 +20,13 @@ Pour installer ces deux bibliothèques, ouvrez un terminal sur le Raspberry PI (
 
 `sudo pip3 install mfrc522`
 
-### Activer l'interface SPI
+## Activer l'interface SPI
 
-L'interface SPI permet de communiquer avec le lecteur RFID. Pour l'activer, ouvrez un terminal sur le Raspberry et entrez dans la configuration de la carte en tapant `sudo raspi-config`. Avec les touches du clavier, navigez vers __"5 Interfacing Options"__
+L'interface SPI permet de communiquer avec le lecteur RFID. Pour l'activer, ouvrez un terminal sur le Raspberry et entrez dans la configuration de la carte en tapant `sudo raspi-config`. Avec les touches du clavier, navigez vers __"5 Interfacing Options"__. Tapez sur __Entrée__ puis sélectionnez __"P4 SPI"__. Répondez __"Yes"__ lorsque l'outil de configuration vous demande de confirmer l'activation de l'interface SPI. Une fois l'option activée, quittez l'outil de configuration en appuyant autant de fois que nécéssaire sur la touche __"Échap"__ afin de retourner au terminal.
+
+Il reste enfin à redémarrer le Raspberry PI en tapant la commande `sudo reboot now`.
+
+## Télécharger et installer le module
 
 Pour télécharger le module, cliquez sur le bouton "Clone or download" puis sur "Download ZIP".
 
