@@ -30,4 +30,18 @@ Il reste enfin à redémarrer le Raspberry PI en tapant la commande `sudo reboot
 
 Pour télécharger le module, cliquez sur le bouton "Clone or download" puis sur "Download ZIP".
 
-Extrayez ensuite le fichier où vous le souhaitez. Copiez le contenu du dossier `pi-rfid` sur le Raspberry PI _via_ une session SSH ou directement en mode graphique. Vous pouvez également cloner ce dépôt git  
+Extrayez ensuite le fichier où vous le souhaitez. Copiez le contenu du dossier `pi-rfid` sur le Raspberry PI _via_ une session SSH ou directement en mode graphique.
+
+Naviguez ensuite à l'intérieur de ce dossier et tapez la commande `chmod +x start.sh` pour autoriser l'éxécution du fichier __start.sh__.
+
+Si vous souhaitez que le programme de détection de badge démarre au démarrage du Raspberry, il est possible de créer un tâche de démarrage grâce à la table de planification __crontab__. Pour ce faire, entrez la commande suivante :
+
+`sudo crontab -e`
+
+Si crontab vous demande de choisir un éditeur, sélectionnez l'option __1 nano__. Un éditeur de texte s'ouvre alors. Déplacez votre curseur avec les touches du clavier en bas du fichier et ajoutez la ligne suivante :
+
+`@reboot (sudo sleep 40 ; sudo <chemin>/pi-rfid/start.sh) &` où `<chemin>` est le chemin de dossiers contenant `pi-rfid`.
+
+Entrez ensuite la combianaison de touches __CTRL+O__ pour suavegarder, puis tapez sur __Entrée__ et enfin tapez __CTRL+X__ pour quitter l'éditeur. Le programme devrait alors se lancer au prochain démarrage.
+
+Pour le lancer manuellement, naviguez simplement dans le dossier __pi-rfid__ et entrez la commande `sudo ./start.sh`.
