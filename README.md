@@ -5,6 +5,12 @@ __Site du Plascilab :__ <https://www.plascilab.fr/>
 
 __Site de Planète Sciences :__ <http://www.planete-sciences.org/national/>
 
+# Fonctionnement du module
+
+Le script bash __start.sh__ lance successivement les sripts python __Read.py__ et __Send.py__.
+
+__Read.py__ attend le passage d'un badge sur le lecteur et écrit l'identifiant unique de ce badge dans le fichier __idfile.txt__. Ensuite, __Send.py__ lit lidentifiant écrit dans ce fichier et l'envoie dans une trame TCP sur le réseau pour réception par une application tierce.
+
 # Installation du module
 
 ## Installer les bibiliothèques nécéssaires
@@ -45,9 +51,3 @@ Si crontab vous demande de choisir un éditeur, sélectionnez l'option __1 nano_
 Entrez ensuite la combianaison de touches __CTRL+O__ pour suavegarder, puis tapez sur __Entrée__ et enfin tapez __CTRL+X__ pour quitter l'éditeur. Le programme devrait alors se lancer au prochain démarrage.
 
 Pour le lancer manuellement, naviguez simplement dans le dossier __pi-rfid__ et entrez la commande `sudo ./start.sh`.
-
-# Fonctionnement du module
-
-Le script bash __start.sh__ lance successivement les sripts python __Read.py__ et __Send.py__.
-
-__Read.py__ attend le passage d'un badge sur le lecteur et écrit l'identifiant unique de ce badge dans le fichier __idfile.txt__. Ensuite, __Send.py__ lit lidentifiant écrit dans ce fichier et l'envoie dans une trame TCP sur le réseau pour réception par une application tierce.
